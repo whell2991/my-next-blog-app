@@ -6,7 +6,7 @@ import { auth, signOut, signIn } from "@/auth";
 const Navbar = async () => {
   const session = await auth();
   return (
-    <header className="px-5 py-3 shadow-sm bg-white font-work-sans">
+    <header className="px-5 py-3 shadow-sm bg-white">
       <nav className="flex justify-between items-center ">
         <Link href="/">
           <Image
@@ -17,7 +17,7 @@ const Navbar = async () => {
           />
         </Link>
 
-        <div className="flex item-center gap-5 text-black">
+        <div className="flex items-center gap-5 text-black font-semibold ">
           {session && session.user ? (
            <>
             <Link href="/startup/create">
@@ -27,7 +27,7 @@ const Navbar = async () => {
             action={async () => { 
               "use server";
               await signOut({ redirectTo: "/" })}}>
-              <button type="submit">Logout</button>
+              <button type="submit" >Logout</button>
             </form>
 
             <Link href={`/user/${session?.user?.id}`}>
@@ -35,11 +35,11 @@ const Navbar = async () => {
             </Link>
            </>
           ) : (
-            <form
+            <form 
             action={async () => { 
               "use server";
               await signIn('github')}}>
-              <button type="submit">Login</button>
+              <button type="submit" >Login</button>
             </form>
           )}
         </div>
