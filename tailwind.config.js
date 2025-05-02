@@ -3,31 +3,17 @@ import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./sanity/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontWeight: {
-      thin: '100',
-      extralight: '200',
-      light: '300',
-      normal: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
-      extrabold: '800',
-      black: '900',
-    },
     extend: {
       screens: {
         xs: "475px",
-      },
-      fontFamily: {
-        'work-sans': ['"Work Sans"', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -46,6 +32,9 @@ module.exports = {
           DEFAULT: "#FFFFFF",
         },
       },
+      fontFamily: {
+        "work-sans": ["var(--font-work-sans)"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -58,8 +47,10 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    typography,
-    tailwindcssAnimate,
-  ],
+
+  
+    plugins: [
+      tailwindcssAnimate,
+      typography,
+    ],
 };
