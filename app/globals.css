@@ -43,6 +43,10 @@
         @apply font-medium text-[16px] text-black;
     }
 
+    .text-16-semibold {
+        @apply font-semibold text-[16px] text-black;
+    }
+
     .text-14-normal {
         @apply font-normal text-sm text-white-100/80;
     }
@@ -136,12 +140,20 @@
         @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-primary-100;
     }
 
+    .card_header {
+        @apply flex-between;
+    }
+
+    .startup-card_view-slot {
+        @apply flex gap-1.5;
+    }
+
     .startup-card_date {
         @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100;
     }
 
     .startup-card_desc {
-        @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all;
+        @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-words;
     }
 
     .startup-card_img {
@@ -206,7 +218,7 @@
                 rgba(251, 232, 67, 0.6) 50.5%,
                 transparent 50.5%
         );
-        background-size: 20% 100%;
+        background-size: 12% 100%;
         background-position: center;
         background-repeat: repeat-x;
     }
