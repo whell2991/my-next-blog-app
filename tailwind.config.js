@@ -1,4 +1,4 @@
-import tailwindcssAnimate from "tailwindcss-animate";
+import tailwindcssAnimate from "tailwindcss-animate"; // Already imported, no need for require()
 import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
@@ -17,18 +17,18 @@ module.exports = {
       },
       colors: {
         primary: {
-          "100": "#FFE8F0",
+          100: "#FFE8F0",
           DEFAULT: "#EE2B69",
         },
         secondary: "#FBE843",
         black: {
-          "100": "#333333",
-          "200": "#141413",
-          "300": "#7D8087",
+          100: "#333333",
+          200: "#141413",
+          300: "#7D8087",
           DEFAULT: "#000000",
         },
         white: {
-          "100": "#F7F7F7",
+          100: "#F7F7F7",
           DEFAULT: "#FFFFFF",
         },
       },
@@ -48,9 +48,9 @@ module.exports = {
     },
   },
 
-  
-    plugins: [
-      tailwindcssAnimate,
-      typography,
-    ],
+  plugins: [
+    tailwindcssAnimate,
+    typography,
+    // Removed require() as the plugin is already imported
+  ],
 };

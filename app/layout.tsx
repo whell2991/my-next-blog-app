@@ -1,8 +1,9 @@
+// 'use client';
+import React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
-
 
 const workSans = localFont({
   src: [
@@ -66,11 +67,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={workSans.className}>
-        {children}
-      
-      </body>
+    <html lang="en" className={workSans.variable}>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }
