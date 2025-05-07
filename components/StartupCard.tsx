@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React from "react";
 import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
@@ -7,9 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Startup, Author } from "@/sanity/types";
 
-export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author};
+export type StartupCardType = Omit<Startup, "author"> & {author?: Author};
 
-const StartupCard = ({ post }: { post: StartupTypeCard }) => {
+const StartupCard = ({ post }: { post: StartupCardType }) => {
   const {
     _createdAt,
     views,
