@@ -1,4 +1,8 @@
-// import Image from "next/image";
+// This is the main page of the application, which displays a list of startups and a search form.
+// It fetches data from a Sanity CMS and displays it using the StartupCard component.
+// It also includes a live update feature using the SanityLive component.
+// The page is styled using CSS classes and includes a heading and subheading.
+// The page is designed to be responsive and user-friendly, allowing users to easily search for and view startup information.
 
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import SearchForm from "../../components/SearchForm";
@@ -37,37 +41,3 @@ export default async function Home({ searchParams }: { searchParams: Promise<{qu
    
   );
 }
-
-
-  // const posts = [
-  //   {
-  //     _createdAt: "2023-01-01",
-  //     views: 120,
-  //     author: { _id: 1, name: "John Doe", img:"/profile_pic.png" },
-  //     _id: "post1",
-  //     description: "An innovative startup idea to revolutionize the tech industry.",
-  //     image: "/startup1.jpeg",
-  //     category: "Technology",
-  //     title: "Tech Revolution"
-  //   },
-  //   {
-  //     _createdAt: "2023-02-15",
-  //     views: 85,
-  //     author: { _id: 2, name: "Jane Smith", img:"/profile_pic.png" },
-  //     _id: "post2",
-  //     description: "A sustainable solution for modern agriculture.",
-  //     image: "/startup2.jpeg",
-  //     category: "Agriculture",
-  //     title: "Green Farming"
-  //   },
-  //   {
-  //     _createdAt: "2023-03-10",
-  //     views: 200,
-  //     author: { _id: 3, name: "Mike Johnson", img:"/profile_pic.png" },
-  //     _id: "post3",
-  //     description: "A platform to connect entrepreneurs with investors.",
-  //     image: "/startup3.jpeg",
-  //     category: "Business",
-  //     title: "Startup Connect"
-  //   }
-  // ];

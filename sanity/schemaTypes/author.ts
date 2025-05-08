@@ -6,7 +6,7 @@ export const author = defineType({
   type: 'document',
   fields: [
     defineField({ name: 'name', type: 'string' }),
-    defineField({ name: 'username', type: 'string' }),
+    defineField({ name: 'username', type: 'string'}),
     defineField({ name: 'email', type: 'string' }),
     defineField({ name: 'image', type: 'url' }),
     defineField({ name: 'bio', type: 'text' }),
