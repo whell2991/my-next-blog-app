@@ -19,6 +19,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const posts = await client.fetch(STARTUPS_BY_ID_QUERY, { id });
 
+
+
   if (!posts) return notFound();
 
   const parsedContent = md.render(posts.pitch || "");
@@ -38,10 +40,10 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           src={posts.image}
           alt="Startup Thumbnail"
           className="w-full h-auto rounded-xl"
-          width={800}
-          height={600}
+          width={1920}
+          height={1080}
         />
-        <div className="space-y-5 mt-10 max-w-4xl mx-auto">
+        <div className="space-y-5 mt-10 max-w-5xl mx-auto">
           <div className="flex-between gap-5">
             <Link
               href={`/user/${posts.author?._id}`}
@@ -64,7 +66,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           <h3 className="text-30-bold">Pitch Details</h3>
           {parsedContent ? (
             <article
-                className="prose dark:prose-invert max-w-4xl break-all"
+                className="prose dark:prose-invert max-w-5xl break-all"
                 dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
           ): (
