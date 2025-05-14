@@ -11,3 +11,7 @@ export function formatDate(date: Date) {
     day: "2-digit",
   })
 }
+
+export function parseServerActionResponse<T>(response: T){
+  return JSON.parse(JSON.stringify(response))
+}

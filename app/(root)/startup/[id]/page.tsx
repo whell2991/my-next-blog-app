@@ -10,16 +10,17 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
 
-
-const md = markdownit()
+const md = markdownit();
 
 export const experimental_ppr = true;
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  
+
   const id = (await params).id;
+  console.log("id", id);
+
   const posts = await client.fetch(STARTUPS_BY_ID_QUERY, { id });
-
-
 
   if (!posts) return notFound();
 
@@ -57,8 +58,10 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                 height={64}
               />
               <div className="flex-col gap-1">
-                <p className="text-20-medium">{posts.author.name}</p>
-                <p className="text-16-medium !text-black-300">@{posts.author.username}</p>
+                <p className="text-20-medium">{posts.author?.name}</p>
+                <p className="text-16-medium !text-black-300">
+                  @{posts.author?.username}
+                </p>
               </div>
             </Link>
             <p className="category-tag">{posts.category}</p>
@@ -66,20 +69,19 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           <h3 className="text-30-bold">Pitch Details</h3>
           {parsedContent ? (
             <article
-                className="prose dark:prose-invert max-w-5xl break-all"
-                dangerouslySetInnerHTML={{ __html: parsedContent }}
+              className="prose dark:prose-invert max-w-5xl break-all"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
-          ): (
-            <p className="text-16-medium">No pitch details available.</p>)}
+          ) : (
+            <p className="text-16-medium">No pitch details available.</p>
+          )}
         </div>
-        <hr className="divider"/>
+        <hr className="divider" />
         {/* TODO: Editor Selected Startups */}
-
-        <Suspense fallback={<Skeleton className="view_skeleton"/>}>
-        <View id={id}/>
+        <Suspense fallback={<Skeleton className="view_skeleton" />}>
+          <View id={id} />
         </Suspense>
       </section>
-      
     </>
   );
 };

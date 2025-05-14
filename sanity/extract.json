@@ -844,6 +844,13 @@
           "type": "string"
         }
       },
+      "id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
       "name": {
         "type": "objectAttribute",
         "value": {

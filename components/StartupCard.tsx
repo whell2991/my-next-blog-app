@@ -1,11 +1,12 @@
 // "use client";
 import React from "react";
-import { formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Startup, Author } from "@/sanity/types";
+import { Skeleton } from "./ui/skeleton";
 
 export type StartupCardType = Omit<Startup, "author"> & {author?: Author};
 
@@ -43,7 +44,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
         <Link href={`/user/${author?._id}`}>
           <Image
             src={author?.image || "/default-profile.png"}
-            alt="profile thumbnail"
+            alt={author?.name || "Default Author Name"}
             width={48}
             height={48}
             className="rounded-full"
@@ -71,5 +72,15 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     </li>
   );
 };
+
+export const StartupCardSkeleton = () => (
+  <>
+  {[0, 1, 2, 3, 4].map((index:number) => (
+    <li key={cn('skeleton', index)}>
+      <Skeleton className="startup-card_skeleton"/>
+    </li>
+  ))}
+  </>
+)
 
 export default StartupCard;

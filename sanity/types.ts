@@ -158,6 +158,7 @@ export type Author = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  id?: number;
   name?: string;
   username?: string;
   email?: string;
